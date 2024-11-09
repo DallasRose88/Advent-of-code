@@ -11,3 +11,21 @@ while x < (len(content)-1):
     x += 1
     
 print(increase)
+
+#Part 2
+f = open('code')
+
+content = f.readlines()
+
+threes = 0
+old = 1000
+x = 0 
+
+while x < (len(content)-2):
+    new = int(content[x]) + int(content[x+1])+int(content[x+2])
+    if new > old:
+        threes += 1
+    old = new 
+    x += 1
+    
+print('Part 2', threes)
