@@ -1,0 +1,15 @@
+f = open('code')
+
+horizontal = 0
+vertical = 0 
+
+for line in f:
+    split = line.split(' ')
+    if split[0] == 'forward':
+        horizontal += int(split[1]) 
+    if split[0] == 'down':
+        vertical += int(split[1])
+    if split[0] == 'up':
+        vertical -= int(split[1])
+
+print(horizontal*vertical)
