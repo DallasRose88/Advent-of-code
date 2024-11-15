@@ -1,0 +1,27 @@
+f = open('code')
+
+content = f.readlines()
+
+gama = ''
+epsilon = ''
+
+x = 0 
+while x < 12:
+    ones = 0
+    zeros = 0
+    place = 0
+    while place < len(content):
+        if content[place][x] == '1':
+            ones += 1 
+        else:
+            zeros += 1 
+        place += 1 
+    if ones >= zeros:
+        gama += '1'
+        epsilon += '0'
+    else:
+        gama += '0'
+        epsilon += '1'
+    x += 1 
+
+print('Part 1', int(gama,2)*int(epsilon,2))
