@@ -25,3 +25,57 @@ while x < 12:
     x += 1 
 
 print('Part 1', int(gama,2)*int(epsilon,2))
+
+#part 2
+f = open('code')
+
+content = f.readlines()
+
+O2 = content
+CO2 = content
+O2total = ''
+CO2total = ''
+
+x = 0 
+while x < 12:
+    ones = 0
+    zeros = 0
+    place = 0
+    while place < len(O2):
+        if O2[place][x] == '1':
+            ones += 1 
+        else:
+            zeros += 1 
+        place += 1 
+    if ones >= zeros:
+        new = [i for i in O2 if i[x] == '1']
+    else:
+        new = [i for i in O2 if i[x] == '0']
+    O2 =  new
+    if len(O2) == 1:
+        a = O2total.join(new[0:5])
+        break
+    x += 1 
+
+x = 0 
+while x < 12:
+    ones = 0
+    zeros = 0
+    place = 0
+    while place < len(CO2):
+        if CO2[place][x] == '1':
+            ones += 1 
+        else:
+            zeros += 1 
+        place += 1 
+    if zeros <= ones:
+        new = [i for i in CO2 if i[x] == '0']
+    else:
+        new = [i for i in CO2 if i[x] == '1']
+    CO2 =  new
+    if len(CO2) == 1:
+        b = CO2total.join(new[0:5])
+        break
+    x += 1 
+
+print('Part 2', int(a,2)*int(b,2))
